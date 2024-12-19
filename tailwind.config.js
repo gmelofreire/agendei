@@ -18,17 +18,17 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        function ({ addBase }) {
+            addBase({
+                'h1': { fontSize: '2.25rem', fontWeight: '700', color: '#1f2937' },
+                'h2': { fontSize: '1.875rem', fontWeight: '600', color: '#374151' },
+                'h3': { fontSize: '1.5rem', fontWeight: '600', color: '#4b5563' },
+                'h4': { fontSize: '1.25rem', fontWeight: '500', color: '#4b5563' },
+                'h5': { fontSize: '1rem', fontWeight: '500', color: '#6b7280' },
+                'h6': { fontSize: '0.875rem', fontWeight: '500', color: '#6b7280' },
+            });
+        },
+    ],
 };
-
-// module.exports = {
-//     content: [
-//         './resources/**/*.blade.php',
-//         './resources/**/*.js',
-//         './resources/**/*.vue',
-//     ],
-//     theme: {
-//         extend: {},
-//     },
-//     plugins: [],
-// };
