@@ -39,7 +39,7 @@
                                             <ul role="list" class="-mx-2 space-y-1">
                                                 <li v-for="item in menuItems" :key="item.name">
                                                     <Link :href="item.href"
-                                                        :class="[item.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
+                                                        :class="[item.href === $page.url ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
                                                     <component :is="item.icon"
                                                         :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white', 'size-6 shrink-0']"
                                                         aria-hidden="true" />
@@ -88,7 +88,7 @@
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li v-for="item in menuItems" :key="item.name">
                                     <Link :href="item.href"
-                                        :class="[item.current ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
+                                        :class="[item.href === $page.url ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
                                     <component :is="item.icon"
                                         :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white', 'size-6 shrink-0']"
                                         aria-hidden="true" />

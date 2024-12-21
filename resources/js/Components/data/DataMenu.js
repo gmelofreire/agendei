@@ -1,8 +1,9 @@
 export const menuItems = [
-    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-    { name: 'Calendário', href: '#', icon: CalendarIcon, current: false },
-    { name: 'Serviços', href: '#', icon: UsersIcon, current: false },
-    { name: 'Funcionarios', href: '#', icon: FolderIcon, current: false },
+    { name: 'Home', href: '/', icon: HomeIcon},
+    { name: 'Admin', href: '/dashboard', icon: UserIcon},
+    { name: 'Calendário', href: '/welcome', icon: CalendarIcon},
+    { name: 'Serviços', href: '#', icon: UsersIcon},
+    { name: 'Funcionarios', href: '#', icon: FolderIcon},
 ];
 
 import {
@@ -12,4 +13,6 @@ import {
     FolderIcon,
     HomeIcon,
     UsersIcon,
+    UserIcon,
+
 } from '@heroicons/vue/24/outline'
