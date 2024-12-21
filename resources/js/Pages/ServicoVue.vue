@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="servico in servicos" :key="servico.id">
+                    <tr v-for="servico in listaServicos" :key="servico.id">
                         <td class="border border-slate-700 ...">{{ servico.nome }}</td>
                         <td class="border border-slate-700 ...">{{ servico.preco }}</td>
                         <td class="border border-slate-700 ...">{{ servico.especialidade.nome }}</td>
@@ -27,9 +27,10 @@
                     </tr>
                 </tbody>
             </table>
+            <!-- {{ listaServicos }} -->
         </div>
     </Sidebar>
-    <ModalTESTE :abrir="open" @close="ControleModal" />
+    <ModalTESTE :abrir="open" @close="ControleModal" @registroCriado="atualizarLista"/>
 </template>
 
 <script setup>
@@ -41,13 +42,15 @@
     const props = defineProps({
         servicos: Array
     })
-
+    const listaServicos = ref([...props.servicos]);
     const open = ref(false);
 
     const ControleModal = () => {
         open.value = !open.value;
     }
 
-
+    const atualizarLista = (servico) => {
+        listaServicos.value.push(servico.item);
+    }
 
 </script>

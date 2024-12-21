@@ -41,6 +41,7 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 Route::get('/servico', [ServicoController::class, 'index'])->name('servico.index');
+Route::post('/servico/store', [ServicoController::class, 'store'])->name('servico.store');
 
 
 require __DIR__ . '/auth.php';
