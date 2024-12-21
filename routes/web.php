@@ -39,6 +39,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/', function () {
     return Inertia::render('Home');
 });
+Route::get('/servico', function () {
+    return Inertia::render('ServicoVue');
+})->name('servico.index');
 
 
 require __DIR__ . '/auth.php';

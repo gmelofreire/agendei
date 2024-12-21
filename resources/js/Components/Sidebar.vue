@@ -88,7 +88,7 @@
                             <ul role="list" class="-mx-2 space-y-1">
                                 <li v-for="item in menuItems" :key="item.name">
                                     <Link :href="item.href"
-                                        :class="[item.href === $page.url ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
+                                        :class="[item.component == $inertia.page.component ? 'bg-indigo-700 text-white' : 'text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold']">
                                     <component :is="item.icon"
                                         :class="[item.current ? 'text-white' : 'text-indigo-200 group-hover:text-white', 'size-6 shrink-0']"
                                         aria-hidden="true" />
@@ -118,7 +118,7 @@
                                     :src=" $page.props.auth.user ? 'https://preview.redd.it/escolha-v0-t5cxvxs4i9sc1.jpeg?auto=webp&s=41a599005c694dc54e070d18ef6992b35dff26c2' : 'https://i.pinimg.com/736x/c7/f2/8a/c7f28a1869439c7a2702cc22ab8e35a5.jpg'"
                                     alt="" />
                                 <span class="sr-only">Your profile</span>
-                                <span aria-hidden="true">{{ $page.props.auth.user ? $page.props.auth.user.name : 'Entrar'}}</span>
+                                <span aria-hidden="true">{{ $page.props.auth.user ? 'Olá, '+$page.props.auth.user.name : 'Entrar'}}</span>
                         </Link>
                         </li>
                     </ul>

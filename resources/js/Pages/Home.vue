@@ -1,7 +1,7 @@
 <template>
     <layout>
         <Sidebar>
-            <div class="container mx-auto ">
+            <div class="container mx-auto grid gap-5">
                 <div class=" grid sm:grid-cols-5 text-white gap-5">
                     <div class="bg-indigo-600  p-3 rounded-lg" v-for="item in 5" :key="item">
                         <div class="flex justify-between mb-2">
@@ -14,6 +14,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="bg-indigo-600 h-96 rounded-lg"></div>
             </div>
         </Sidebar>
     </layout>
