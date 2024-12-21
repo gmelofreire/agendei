@@ -112,14 +112,14 @@
                             </ul>
                         </li> -->
                         <li class="-mx-6 mt-auto">
-                            <a href="#"
+                            <Link href="/dashboard"
                                 class="flex items-center gap-x-4 px-6 py-3 text-sm/6 font-semibold text-white hover:bg-indigo-700">
                                 <img class="size-8 rounded-full bg-indigo-700"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    :src=" $page.props.auth.user ? 'https://preview.redd.it/escolha-v0-t5cxvxs4i9sc1.jpeg?auto=webp&s=41a599005c694dc54e070d18ef6992b35dff26c2' : 'https://i.pinimg.com/736x/c7/f2/8a/c7f28a1869439c7a2702cc22ab8e35a5.jpg'"
                                     alt="" />
                                 <span class="sr-only">Your profile</span>
-                                <span aria-hidden="true">Tom Cook</span>
-                            </a>
+                                <span aria-hidden="true">{{ $page.props.auth.user ? $page.props.auth.user.name : 'Entrar'}}</span>
+                        </Link>
                         </li>
                     </ul>
                 </nav>
