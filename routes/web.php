@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServicoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,9 +40,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/', function () {
     return Inertia::render('Home');
 });
-Route::get('/servico', function () {
-    return Inertia::render('ServicoVue');
-})->name('servico.index');
+Route::get('/servico', [ServicoController::class, 'index'])->name('servico.index');
 
 
 require __DIR__ . '/auth.php';
