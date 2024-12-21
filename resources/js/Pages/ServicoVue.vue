@@ -43,6 +43,7 @@
     })
 
     const open = ref(false);
+
     const ControleModal = () => {
         open.value = !open.value;
     }
