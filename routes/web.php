@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicoController;
 use Illuminate\Foundation\Application;
@@ -42,6 +43,9 @@ Route::get('/', function () {
 });
 Route::get('/servico', [ServicoController::class, 'index'])->name('servico.index');
 Route::post('/servico/store', [ServicoController::class, 'store'])->name('servico.store');
+
+Route::get('/especialidade', [EspecialidadeController::class, 'index'])->name('especialidade.index');
+Route::post('/especialidade/store', [EspecialidadeController::class, 'store'])->name('especialidade.store');
 
 
 require __DIR__ . '/auth.php';

@@ -3,6 +3,7 @@ export const menuItems = [
     { name: 'Admin', href: '/dashboard', icon: UserIcon, component: 'Dashboard'},
     { name: 'Calendário', href: '/welcome', icon: CalendarIcon, component: 'Welcome'},
     { name: 'Serviços', href: route("servico.index"), icon: UsersIcon, component: 'ServicoVue'},
+    { name: 'Especialidades', href: route("especialidade.index"), icon: UsersIcon, component: 'Especialidade'},
     { name: 'Funcionarios', href: '#', icon: FolderIcon},
 ];
 

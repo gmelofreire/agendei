@@ -29,25 +29,23 @@ class ServicoController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            // dd($request->all());
+        // try {
 
-            $servico = Servico::create($request->all());
+        $servico = Servico::create($request->all());
 
+        dd($servico);
+        $servico->load('especialidade');
 
+        return response([
+            'item' => $servico,
+        ]);
 
-            $servico->load('especialidade');
-
-            return response([
-                'item' => $servico,
-            ]);
-
-        } catch (Exception $e) {
-            return response()->json([
-                'message' => 'Erro ao cadastrar serviço',
-                'error' => $e
-            ], 400);
-        }
+        // } catch (Exception $e) {
+        //     return response()->json([
+        //         'message' => 'Erro ao cadastrar serviço',
+        //         'error' => $e
+        //     ], 400);
+        // }
 
 
     }
