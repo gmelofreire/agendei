@@ -16,12 +16,10 @@
                 <tbody>
                     <tr v-for="especialidade in listaEspecialidades" :key="especialidade.id">
                         <td class="border border-slate-700 ...">{{ especialidade.nome }}</td>
-                        <!-- <td class="border border-slate-700 ...">{{ especialidade.preco }}</td>
-                        <td class="border border-slate-700 ...">{{ especialidade.especialidade.nome }}</td> -->
                         <td class="border border-slate-700 ...">
                             <div>
                                 <button>editar</button>
-                                <button>excluir</button>
+                                <button @click="excluirEspecialidade(especialidade.id)">excluir</button>
                             </div>
                         </td>
                     </tr>
@@ -30,27 +28,43 @@
             <!-- {{ listaEspecialidades }} -->
         </div>
     </Sidebar>
-    <ModalTESTE :abrir="open" @close="ControleModal" @registroCriado="atualizarLista"/>
+    <ModalTESTE :abrir="open" @close="ControleModal" @registroCriado="atualizarLista" />
 </template>
 
 <script setup>
-    import ModalTESTE from '@/Components/modal/ModalEspecialidade.vue';
-    import Sidebar from '@/Components/Sidebar.vue';
-    import { ref } from 'vue';
+import ModalTESTE from '@/Components/modal/ModalEspecialidade.vue';
+import Sidebar from '@/Components/Sidebar.vue';
+import { ref } from 'vue';
 
 
-    const props = defineProps({
-        especialidades: Array
-    })
-    const listaEspecialidades = ref([...props.especialidades]);
-    const open = ref(false);
+const props = defineProps({
+    especialidades: Array
+})
+const listaEspecialidades = ref([...props.especialidades]);
+const open = ref(false);
 
-    const ControleModal = () => {
-        open.value = !open.value;
+const ControleModal = () => {
+    open.value = !open.value;
+}
+
+const atualizarLista = (especialidade) => {
+    if (especialidade && especialidade.id) {
+        listaEspecialidades.value.push(especialidade);
     }
+};
 
-    const atualizarLista = (especialidade) => {
-        listaEspecialidades.value.push(especialidade.item);
-    }
+const excluirEspecialidade = (id) => {
+    axios.delete(route('especialidade.delete', id))
+        .then((response) => {
+            if (response.status === 200) {
+                listaEspecialidades.value = listaEspecialidades.value.filter(item => item.id !== id);
+                console.log(response.data.success);
+            }
+        })
+        .catch((error) => {
+            console.error('Erro ao excluir:', error.response?.data?.error || error.message);
+        });
+};
+
 
 </script>

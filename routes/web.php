@@ -46,6 +46,7 @@ Route::post('/servico/store', [ServicoController::class, 'store'])->name('servic
 
 Route::get('/especialidade', [EspecialidadeController::class, 'index'])->name('especialidade.index');
 Route::post('/especialidade/store', [EspecialidadeController::class, 'store'])->name('especialidade.store');
+Route::delete('/especialidade/{id}', [EspecialidadeController::class, 'destroy'])->name('especialidade.delete');
 
 
 require __DIR__ . '/auth.php';
